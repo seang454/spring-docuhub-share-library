@@ -1,7 +1,7 @@
 # ===============================
 # Stage 1: Build with Gradle
 # ===============================
-ARG GRADLE_VERSION=7.6
+ARG GRADLE_VERSION=8.3
 FROM gradle:${GRADLE_VERSION}-jdk21 AS builder
 
 WORKDIR /app
