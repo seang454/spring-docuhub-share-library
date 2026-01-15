@@ -1,9 +1,7 @@
 # ===============================
 # Stage 1: Build with Gradle
 # ===============================
-ARG GRADLE_VERSION=8.3
-FROM gradle:${GRADLE_VERSION}-jdk21 AS builder
-
+FROM gradle:8.5-jdk21 AS builder
 WORKDIR /app
 
 # Copy Gradle files first (for caching)
@@ -35,4 +33,4 @@ VOLUME [ "/app/filestorage/images" ]
 EXPOSE 8080
 
 # Run Spring Boot application
-ENTRYPOINT java -jar app.jar --server.port=$PORT
+ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=${PORT}"]
